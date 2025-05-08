@@ -51,6 +51,10 @@ else
 fi
 echo "= Bash_Profile Config ================> Ok <="
 
+# // Git Confing ==================================
+./Git_Config.sh
+echo "= Git Config =========================> ok <="
+
 # // TTY Config ===================================
 # // You have to be root to do it !!!!!!!!!!!!!!!!!
 # cat vconsole.conf >> /etc/vconsole.conf
