@@ -23,6 +23,7 @@ sudo pacman -S --noconfirm btop
 sudo pacman -S --noconfirm ttf-hack-nerd       
 sudo pacman -S --noconfirm terminus-font       
 sudo pacman -S --noconfirm polybar
+sudo pacman -S --noconfirm tmux
 
 sudo pacman -S --noconfirm neovim              
 sudo pacman -S --noconfirm lua
