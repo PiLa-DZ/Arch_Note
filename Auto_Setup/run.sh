@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # // Pacman Mirrorlist ============================
-# sudo reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 --protocol http
+sudo reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 --protocol http
 echo "= Pacman Mirrorlist ==================> ok <="
 
 # // Install All Apps =============================
-# ./App_Install.sh
+./App_Install.sh
 echo "= Install Apps =======================> ok <="
 
 # // Xinitrc Config ===============================
