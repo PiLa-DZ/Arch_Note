@@ -1,12 +1,14 @@
 # Install 
     $ sudo pacman -S bluez bluez-utils
-    $ lsmod btusb
+    $ lsmod | grep btusb
+    $ modprobe btusb
     $ sudo systemctl start bluetooth.service
     $ sudo systemctl enable bluetooth.service
     
-    // Graphic interface
+    // GUI App
         $ blueman
 
+    // Terminal App
     $ bluetoothctl
         > power on
         > agent on
