@@ -3,4 +3,4 @@
 
 # List System Fonts
     $ ls /usr/share/fonts
-    $ fc-list | grep Adwaita | less
+    $ fc-list | grep Hack | less

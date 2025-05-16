@@ -15,7 +15,7 @@ fi
 echo "= TTY Font Config ====================> ok <="
 
 # // Grub Config ==================================
-sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 echo "= Grub Config ========================> ok <="
 

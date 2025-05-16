@@ -7,6 +7,7 @@
     $ vim ~/.xinitrc
         exec i3
     $ reboot
+    // Login
     $ startx
 
     // Edit some config
