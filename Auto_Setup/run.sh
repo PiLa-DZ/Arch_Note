@@ -1,11 +1,13 @@
 #!/bin/bash
 
+echo "= Start ******************************> ok <="
+
 # // Pacman Mirrorlist ============================
-sudo reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 --protocol http
+#sudo reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 --protocol http
 echo "= Pacman Mirrorlist ==================> ok <="
 
 # // Install All Apps =============================
-./App_Install.sh
+#./App_Install.sh
 echo "= Install Apps =======================> ok <="
 
 # // Xinitrc Config ===============================
@@ -20,7 +22,6 @@ echo "= Copy Kitty Config ==================> ok <="
 cp -r Wallpaper ~/.config
 echo "= Copy Wallpaper Directory ===========> ok <="
 
-
 # // i3 Confog ====================================
 cp -r i3 ~/.config
 echo "= i3 Config ==========================> ok <="
@@ -32,6 +33,10 @@ echo "= Polybar Config =====================> ok <="
 # // Picom Config =================================
 cp -r picom ~/.config
 echo "= Picom Config =======================> ok <="
+
+# // Rofi Config ==================================
+cp -r rofi ~/.config
+echo "= Rofi Config ========================> Ok <="
 
 # // Bachrc Config ================================
 if grep -R "#--> From Auto_Setup" ~/.bashrc > /dev/null
@@ -51,16 +56,14 @@ else
 fi
 echo "= Bash_Profile Config ================> Ok <="
 
-# // Git Confing ==================================
+# // Git Config ===================================
 ./Git_Config.sh
 echo "= Git Config =========================> ok <="
 
-# // Touchpad Speed ===============================
-xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Accel Speed" 0.5
-echo "= Touchpad Speed =====================> ok <="
-
+echo "= End ********************************> ok <="
 echo ""
 echo "=  -> Reboot To Finish             <- > !! <="
+echo ""
 
 # reboot
 # End -------------------------------------------------------------------------

@@ -1,16 +1,50 @@
+# I3 Settings =============================================================================================================
+# General -----------------------------------------------------------------------------------------------------------------
 set $mod Mod4
-#font pango:monospace Bold 16
-font pango:Hack Nerd Font 16
-
-# ???
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id nm-applet
-
-# Stop Auto Sleep
+font pango:Hack Nerd Font 22
+bindsym $mod+Shift+r restart
+exec_always --no-startup-id xbacklight -set 100 
+# Stop Auto Sleep ---------------------------------------------------------------------------------------------------------
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
-
-# Sound And screen Brightness
+# Gaps --------------------------------------------------------------------------------------------------------------------
+gaps inner 10
+bindsym $mod+1        gaps inner all set 0; 
+bindsym $mod+Shift+1  gaps inner all set 10;
+# Mous Focus --------------------------------------------------------------------------------------------------------------
+focus_follows_mouse no
+# Window Border------------------------------------------------------------------------------------------------------------
+default_border pixel 1
+#hide_edge_borders smart
+set $white #ffffff
+#set $Border_Color #ffa801
+set $Border_Color #ffffff
+client.focused          $Border_Color $Border_Color #ffffff $Border_Color
+client.unfocused        #2f343f #2f343f #ffffff #2f343f
+client.focused_inactive #2f343f #2f343f #ffffff #2f343f
+client.urgent           #E53935 #E53935 #ffffff #E53935
+# ScreenShot --------------------------------------------------------------------------------------------------------------
+bindsym Print exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+# Panel -------------------------------------------------------------------------------------------------------------------
+bar {
+  mode hide
+  hidden_state hide
+  modifier Mod4
+  i3bar_command i3bar --transparency
+  colors { background #00000000 }
+}
+# I3 My Settings ==========================================================================================================
+# Mouse Speed -------------------------------------------------------------------------------------------------------------
+exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Accel Speed" 0.7
+# Border Radius -----------------------------------------------------------------------------------------------------------
+bindsym $mod+2        exec sed -i 's/^corner-radius = 20/corner-radius = 0/' ~/.config/picom/picom.conf 
+bindsym $mod+Shift+2  exec sed -i 's/^corner-radius = 0/corner-radius = 20/' ~/.config/picom/picom.conf  
+# Polybar -----------------------------------------------------------------------------------------------------------------
+bindsym $mod+b        exec --no-startup-id ~/.config/polybar/launch.sh  &
+bindsym $mod+Shift+b  exec --no-startup-id killall polybar &
+bindsym $mod+3        exec polybar-msg cmd toggle &
+# Keyboard Shortcuts ======================================================================================================
+# Sound and Screen Light --------------------------------------------------------------------------------------------------
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -18,63 +52,54 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Shortcuts
-bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec firefox
-bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+c kill
-
-# change focus
+# Apps --------------------------------------------------------------------------------------------------------------------
+bindsym $mod+Return       exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id firefox
+bindsym $mod+n            exec --no-startup-id rofi     -show drun
+bindsym $mod+Shift+n      exec --no-startup-id rofi     -modi emoji -show emoji
+bindsym $mod+c            kill
+# Jump To Next Workspace --------------------------------------------------------------------------------------------------
+bindsym $mod+u      workspace number 1
+bindsym $mod+i      workspace number 2
+bindsym $mod+o      workspace number 3
+bindsym $mod+p      workspace number 4
+bindsym $mod+m      workspace number 5
+bindsym $mod+comma  workspace number 6
+bindsym $mod+period workspace number 7
+bindsym $mod+slash  workspace number 8
+# Jump To Next Window -----------------------------------------------------------------------------------------------------
 bindsym $mod+h focus left
 bindsym $mod+k focus up
 bindsym $mod+j focus down
 bindsym $mod+l focus right
-
-# move focused window
+# Jump To Next (Tilling || Floating) --------------------------------------------------------------------------------------
+bindsym $mod+space focus mode_toggle
+# Jump  The Parent Container ----------------------------------------------------------------------------------------------
+bindsym $mod+a focus parent
+# Jump  Ths Child Container -----------------------------------------------------------------------------------------------
+bindsym $mod+Shift+a focus child
+# Move Window To Next Workspace -------------------------------------------------------------------------------------------
+bindsym $mod+Shift+u      move container to workspace number 1
+bindsym $mod+Shift+i      move container to workspace number 2
+bindsym $mod+Shift+o      move container to workspace number 3
+bindsym $mod+Shift+p      move container to workspace number 4
+bindsym $mod+Shift+m      move container to workspace number 5
+bindsym $mod+Shift+comma  move container to workspace number 6
+bindsym $mod+Shift+period move container to workspace number 7
+bindsym $mod+Shift+slash  move container to workspace number 8
+# Move Wondow To The (Left || Right || Top || Bottom) Screen --------------------------------------------------------------
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+l move right
-
-# split in horizontal vertical
-bindsym $mod+Shift+comma split h
-bindsym $mod+comma split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# Change Layout Mode {Tabs || Split || (Tilling || Floating)} -------------------------------------------------------------
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-bindsym $mod+Shift+a focus child
-
-# # switch to workspace
-bindsym $mod+u workspace number 1
-bindsym $mod+i workspace number 2
-bindsym $mod+o workspace number 3
-bindsym $mod+p workspace number 4
-
-# move focused container to workspace
-bindsym $mod+Shift+u move container to workspace number 1
-bindsym $mod+Shift+i move container to workspace number 2
-bindsym $mod+Shift+o move container to workspace number 3
-bindsym $mod+Shift+p move container to workspace number 4
-
-bindsym $mod+Shift+r restart
-
+# Split Direction (Vertical || Horizontal) --------------------------------------------------------------------------------
+bindsym $mod+Shift+semicolon split h
+bindsym $mod+semicolon split v
+# Resize Splits Windows ---------------------------------------------------------------------------------------------------
 bindsym $mod+y mode "resize"
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
@@ -83,31 +108,3 @@ mode "resize" {
         bindsym l resize grow width 10 px or 10 ppt
         bindsym Return mode "default"
 }
-
-gaps inner 10
-bindsym $mod+m gaps inner all set 0; 
-bindsym $mod+Shift+m gaps inner all set 10;
-focus_follows_mouse no
-
-# Window Border =========================================
-default_border pixel 1
-hide_edge_borders smart
-
-# #676E7D
-set $white = #ffffff
-#                       border    backgr..  text      indicator
-client.focused          #ffa801 #ffa801 #ffffff #ffa801
-client.unfocused        #2f343f #2f343f #ffffff #2f343f
-client.focused_inactive #2f343f #2f343f #ffffff #2f343f
-client.urgent           #E53935 #E53935 #ffffff #E53935
-
-# Polybar ===============================================
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-bindsym $mod+b exec  ~/.config/polybar/launch.sh  &
-bindsym $mod+Shift+b exec killall polybar &
-
-bindsym $mod+n exec polybar-msg cmd toggle&
-
-bindsym $mod+1 exec sed -i 's/^corner-radius = 20/corner-radius = 0/' ~/.config/picom/picom.conf 
-bindsym $mod+2 exec sed -i 's/^corner-radius = 0/corner-radius = 20/' ~/.config/picom/picom.conf  
