@@ -3,43 +3,51 @@
 set $mod Mod4
 font pango:Hack Nerd Font 22
 bindsym $mod+Shift+r restart
-exec_always --no-startup-id xbacklight -set 100 
+bindsym $mod+Shift+0 exec ~/Arch_Note/Auto_Setup/run_test.sh
+exec_always --no-startup-id xbacklight -set 100
 # Stop Auto Sleep ---------------------------------------------------------------------------------------------------------
-exec --no-startup-id xset s off
+#>exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 # Gaps --------------------------------------------------------------------------------------------------------------------
-gaps inner 10
+gaps inner 4
+#for_window [class="^.*"] border pixel 0
 bindsym $mod+1        gaps inner all set 0; 
-bindsym $mod+Shift+1  gaps inner all set 10;
+bindsym $mod+Shift+1  gaps inner all set 4;
 # Mous Focus --------------------------------------------------------------------------------------------------------------
 focus_follows_mouse no
 # Window Border------------------------------------------------------------------------------------------------------------
 default_border pixel 1
 #hide_edge_borders smart
-set $white #ffffff
-#set $Border_Color #ffa801
 set $Border_Color #ffffff
+set $Border_Color_2 #000000
 client.focused          $Border_Color $Border_Color #ffffff $Border_Color
-client.unfocused        #2f343f #2f343f #ffffff #2f343f
-client.focused_inactive #2f343f #2f343f #ffffff #2f343f
+client.unfocused        $Border_Color_2 $Border_Color_2 #ffffff $Border_Color_2
+client.focused_inactive $Border_Color_2 $Border_Color_2 #ffffff $Border_Color_2
 client.urgent           #E53935 #E53935 #ffffff #E53935
 # ScreenShot --------------------------------------------------------------------------------------------------------------
 bindsym Print exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 # Panel -------------------------------------------------------------------------------------------------------------------
-bar {
-  mode hide
-  hidden_state hide
-  modifier Mod4
-  i3bar_command i3bar --transparency
-  colors { background #00000000 }
-}
+#bar {
+  #mode hide
+  #hidden_state hide
+  #modifier Mod4
+  #i3bar_command i3bar --transparency
+  #colors { background #00000000 }
+#}
 # I3 My Settings ==========================================================================================================
+# Wallpaper ---------------------------------------------------------------------------------------------------------------
+# exec_always feh --bg-fill /home/nabil/.config/Wallpaper/wall3.png &
+# bindsym $mod+9 exec feh --bg-fill /home/nabil/.config/Wallpaper/wall1.png &
+# bindsym $mod+8 exec feh --bg-fill /home/nabil/.config/Wallpaper/wall2.png &
+# bindsym $mod+7 exec feh --bg-fill /home/nabil/.config/Wallpaper/wall3.png &
+# exec_always --no-startup-id feh --randomize --bg-fill ~/.config/Wallpaper/
 # Mouse Speed -------------------------------------------------------------------------------------------------------------
 exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Accel Speed" 0.7
 # Border Radius -----------------------------------------------------------------------------------------------------------
 bindsym $mod+2        exec sed -i 's/^corner-radius = 20/corner-radius = 0/' ~/.config/picom/picom.conf 
 bindsym $mod+Shift+2  exec sed -i 's/^corner-radius = 0/corner-radius = 20/' ~/.config/picom/picom.conf  
 # Polybar -----------------------------------------------------------------------------------------------------------------
+exec_always --no-startup-id ~/.config/polybar/launch.sh  &
 bindsym $mod+b        exec --no-startup-id ~/.config/polybar/launch.sh  &
 bindsym $mod+Shift+b  exec --no-startup-id killall polybar &
 bindsym $mod+3        exec polybar-msg cmd toggle &

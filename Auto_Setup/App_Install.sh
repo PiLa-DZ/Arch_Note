@@ -53,6 +53,8 @@ sudo pacman -S --noconfirm yazi
 sudo pacman -S --noconfirm neofetch            
 sudo pacman -S --noconfirm btop                
 sudo pacman -S --noconfirm tmux
+sudo pacman -S --noconfirm calc
+sudo pacman -S --noconfirm tldr
 
 # Code Editor "Neovim"
 sudo pacman -S --noconfirm neovim              

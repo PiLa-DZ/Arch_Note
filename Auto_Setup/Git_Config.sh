@@ -13,4 +13,3 @@ git config --global core.autucrlf input
 git config --global diff.tool nvim
 		
 
-
