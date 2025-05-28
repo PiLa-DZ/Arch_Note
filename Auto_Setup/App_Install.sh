@@ -60,6 +60,7 @@ sudo pacman -S --noconfirm tldr
 sudo pacman -S --noconfirm neovim              
 sudo pacman -S --noconfirm lua
 sudo pacman -S --noconfirm xsel                
+sudo pacman -S --noconfirm xclip
 git clone https://github.com/NvChad/starter ~/.config/nvim
 
 # Browser "Firefox"

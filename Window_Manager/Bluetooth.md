@@ -28,3 +28,9 @@
     $ sudo pacman -S pulseaudio-bluetooth
     $ pulseaudio --start
     $ pavucontrol
+
+# If you have some problems
+    $ rfkill
+    $ rfkill list all
+    $ sudo rfkill unblock bluetooth
+    $ sudo systemctl restart bluetooth.service

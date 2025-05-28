@@ -1,6 +1,11 @@
 # Install Rofi
     $ sudo pacman -S rofi
     $ sudo pacman -S papirus-icon-theme
+``` bash
+echo "Hello World" 
+```
+```
+```
 
 # Run Rofi
     $ rofi -show drun
