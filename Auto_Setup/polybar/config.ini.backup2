@@ -17,7 +17,7 @@ black   = #000000
 [bar/example]
 bottom = false
 width = 100%
-height = 15pt
+height = 17pt
 radius = 0%
 background = ${colors.bg}
 foreground = ${colors.white}
@@ -36,9 +36,8 @@ padding-right = 0
 
 # Modules Settings ======================================
 #module-margin = 1
-separator = "|"
-separator-foreground = #ffffff
-separator-background = #2c3e50
+#separator = " "
+separator-foreground = ${colors.disabled}
 modules-left = xworkspaces 
 #modules-left = ewmh 
 modules-right = backlight pulseaudio memory cpu wlan battery date 
@@ -51,7 +50,7 @@ interval = 60
 date = %H:%M
 date-alt = %Y-%m-%d %H:%M:%S
 label =  %date%  
-label-background = #2c3e50
+label-background = ${colors.blue}
 label-padding-left = 1
 label-padding-right = 2
 
@@ -101,20 +100,20 @@ animation-low-3 = !!!
 animation-low-framerate = 2000
 
 format-charging-padding = 1
-format-charging-background = #2c3e50
+format-charging-background = ${colors.purple}
 format-discharging-padding = 1
-format-discharging-background = #2c3e50
+format-discharging-background = ${colors.purple}
 format-full-padding = 1
-format-full-background = #2c3e50
+format-full-background = ${colors.purple}
 format-low-padding = 1
-format-low-background = #2c3e50
+format-low-background = ${colors.purple}
 
 # WiFi ==================================================
 [network-base]
 type = internal/network
 interval = 5
 format-connected = " WiFi 󰖩  "
-format-connected-background =#2c3e50
+format-connected-background =#ffa801
 format-disconnected = " WiFi 󱛅  "
 format-disconnected-background = ${colors.red}
 [module/wlan]
@@ -126,7 +125,7 @@ interface-type = wireless
 type = internal/cpu
 interval = 5
 label = CPU %percentage%% 󰻠
-format-background = #2c3e50
+format-background = #00a8ff
 format-padding = 1
 
 # Memory ================================================
@@ -134,7 +133,7 @@ format-padding = 1
 type = internal/memory
 interval = 5
 label = RAM %percentage_used:2%%   
-label-background = #2c3e50
+label-background = #8c7ae6
 label-padding = 1
 label-padding-right = 2
 
@@ -142,7 +141,7 @@ label-padding-right = 2
 [module/pulseaudio]
 type = internal/pulseaudio
 label-volume = %percentage%% 󰕾
-label-volume-background = #2c3e50
+label-volume-background = ${colors.aqua}
 label-volume-padding = 2
 
 label-muted = 0% 󰝛
@@ -163,7 +162,7 @@ format = <label>
 label =  %percentage%% 󰱊
 label-padding = 2
 #label-padding-right = 2
-label-background =#2c3e50
+label-background =#ff3838
 
 # Work Spaces ===========================================
 [module/xworkspaces]
@@ -172,8 +171,7 @@ type = internal/xworkspaces
 label-active = %icon% %name%
 label-active-background = #34495e
 label-active-foreground = #ffffff
-; label-active-underline = #fba922
-label-active-underline = #ffffff
+label-active-underline = #fba922
 label-active-padding = 4
 
 label-occupied = %icon% %name%
