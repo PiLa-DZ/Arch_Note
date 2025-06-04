@@ -96,10 +96,18 @@ bindsym $mod+Shift+comma  move container to workspace number 6
 bindsym $mod+Shift+period move container to workspace number 7
 bindsym $mod+Shift+slash  move container to workspace number 8
 # Move Wondow To The (Left || Right || Top || Bottom) Screen --------------------------------------------------------------
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+l move right
+set $Move_Speed_a 100 px
+set $Move_Speed_b 10 px
+
+bindsym $mod+Shift+h move left $Move_Speed_a
+bindsym $mod+Shift+k move up $Move_Speed_a
+bindsym $mod+Shift+j move down $Move_Speed_a
+bindsym $mod+Shift+l move right $Move_Speed_a
+
+bindsym $mod+Shift+Left move left $Move_Speed_b
+bindsym $mod+Shift+Up move up $Move_Speed_b
+bindsym $mod+Shift+Down move down $Move_Speed_b
+bindsym $mod+Shift+Right move right $Move_Speed_b
 # Change Layout Mode {Tabs || Split || (Tilling || Floating)} -------------------------------------------------------------
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -109,10 +117,18 @@ bindsym $mod+Shift+semicolon split h
 bindsym $mod+semicolon split v
 # Resize Splits Windows ---------------------------------------------------------------------------------------------------
 bindsym $mod+y mode "resize"
+set $Move_Speed_c 100 px
+set $Move_Speed_d 10 ppt
+set $Move_Speed_e 10 px
+set $Move_Speed_f 1 ppt
 mode "resize" {
-        bindsym h resize shrink width 10 px or 1 ppt
-        bindsym k resize shrink height 10 px or 1 ppt
-        bindsym j resize grow height 10 px or 1 ppt
-        bindsym l resize grow width 10 px or 1 ppt
+        bindsym h 	resize shrink width  $Move_Speed_c or $Move_Speed_d
+        bindsym k 	resize shrink height $Move_Speed_c or $Move_Speed_d
+        bindsym j 	resize grow height   $Move_Speed_c or $Move_Speed_d
+        bindsym l 	resize grow width    $Move_Speed_c or $Move_Speed_d
+        bindsym Left 	resize shrink width  $Move_Speed_e or $Move_Speed_f
+        bindsym Up 	resize shrink height $Move_Speed_e or $Move_Speed_f
+        bindsym Down 	resize grow height   $Move_Speed_e or $Move_Speed_f
+        bindsym Right 	resize grow width    $Move_Speed_e or $Move_Speed_f
         bindsym Return mode "default"
 }

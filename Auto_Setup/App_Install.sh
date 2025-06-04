@@ -1,4 +1,6 @@
 # base linux grub efibootmgr  dhcpcd iwd networkmanager reflector sudo bash-completion gvim git
+#
+sudo pacman -S --noconfirm mpv
 
 # Basics
 sudo pacman -S --noconfirm base-devel
