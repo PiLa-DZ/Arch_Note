@@ -5,6 +5,8 @@ font pango:Hack Nerd Font 22
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+0 exec ~/Arch_Note/Auto_Setup/run_test.sh
 exec_always --no-startup-id xbacklight -set 100
+bindsym $mod+4 exec       xinput enable 13
+bindsym $mod+Shift+4 exec xinput disable 13
 # Stop Auto Sleep ---------------------------------------------------------------------------------------------------------
 #>exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms

@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "d85c5d0a254b8793",
+        "id": "ffbd46e6a9d92afe",
         "type": "tabs",
         "children": [
           {
-            "id": "8d2c508d64c833a7",
+            "id": "5bf16debe3234ebb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Yazi/Yazi.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Yazi"
+              "title": "New tab"
             }
           }
         ]
@@ -165,8 +161,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8d2c508d64c833a7",
+  "active": "5bf16debe3234ebb",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "Pacman/Pacman_Commends.md",
+    "Pacman/Pacman.md",
+    "Pacman/All_Packages.md",
+    "Yazi/Yazi.md",
     "Window_Manager/GPU.md",
     "Window_Manager/App_Launcher.md",
     "Window_Manager/Audio.md",

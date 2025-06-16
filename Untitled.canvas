@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"2e67b1aa0d49a655","x":-460,"y":-260,"width":285,"height":180,"type":"text","text":"## Window Manager\n- one\n- two\n- three"},
+		{"id":"12288d64d8a935ca","x":-20,"y":20,"width":325,"height":150,"type":"text","text":"### Wi-FI\n- one\n- two\n- three"},
+		{"id":"02766e82f17348b4","x":-20,"y":-155,"width":308,"height":150,"type":"text","text":"#### Screen Light\n- one\n- two\n- three"}
+	],
+	"edges":[
+		{"id":"1028cec57f23ebda","fromNode":"2e67b1aa0d49a655","fromSide":"right","toNode":"12288d64d8a935ca","toSide":"left"},
+		{"id":"01ab5f621ba71ae9","fromNode":"2e67b1aa0d49a655","fromSide":"right","toNode":"02766e82f17348b4","toSide":"left"}
+	]
+}

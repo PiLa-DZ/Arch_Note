@@ -31,3 +31,16 @@ figlet  " Bash" -f 3d | lolcat
 ```
 - Figlet Fonts
     - https://github.com/xero/figlet-fonts
+
+# MPV Run Youtube video from terminal
+```Bash
+sudo pacman -S mpv
+sudo pacman -S yt-dlp
+# Run mpv with video
+mpv https://youtu.be/C55zjPlqdYw?si=66MASzSqkTX-_AXF -v
+# Run mpv with audio
+mpv https://youtu.be/C55zjPlqdYw?si=66MASzSqkTX-_AXF --no-video
+
+```
+```
+```

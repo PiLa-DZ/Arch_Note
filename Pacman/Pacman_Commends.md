@@ -93,4 +93,6 @@ paru -p --stats
 ```Bash
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
+
+sudo rm -R /var/lib/pacman/sync
 ```

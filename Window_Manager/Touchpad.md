@@ -21,3 +21,11 @@
 		$ xinput set-prop 13 328 1 # Set touchpad speed
 ## Change Touchpad Speed in One Commend
     $ xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Accel Speed" 0.7
+
+# hide mouse cursor on arch
+```Bash
+sudo pacman -S unclutter
+unclutter
+```
+```
+```
